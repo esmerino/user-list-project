@@ -11,6 +11,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <%= render 'layouts/partials/topbar' %>
+      <%= render 'layouts/partials/left-sidebar' %>
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+      <div class="content-page">
+        <%= render 'layouts/partials/content' %>
+        <%= render 'layouts/partials/footer' %>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
+    </div>
   </body>
 </html>
