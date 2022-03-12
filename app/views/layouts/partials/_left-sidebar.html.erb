@@ -3,25 +3,25 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo logo-dark text-center">
-            <span class="logo-sm">
-                <img src="<%= image_url('logo-sm-dark.png') %>" alt="" height="24">
-                <!-- <span class="logo-lg-text-light">Minton</span> -->
-            </span>
-            <span class="logo-lg">
-                <img src="<%= image_url('logo-dark.png') %>" alt="" height="20">
-                <!-- <span class="logo-lg-text-light">M</span> -->
-            </span>
-        </a>
+      <%= link_to root_path, class: "logo logo-dark text-center", data: { turbo: false } do %>
+        <span class="logo-sm">
+          <img src="<%= image_url('logo-sm-dark.png') %>" alt="" height="24">
+          <!-- <span class="logo-lg-text-light">Minton</span> -->
+        </span>
+        <span class="logo-lg">
+          <img src="<%= image_url('logo-dark.png') %>" alt="" height="20">
+          <!-- <span class="logo-lg-text-light">M</span> -->
+        </span>
+      <% end -%>
 
-        <a href="index.html" class="logo logo-light text-center">
-            <span class="logo-sm">
-                <img src="<%= image_url('logo-sm.png') %>" alt="" height="24">
-            </span>
-            <span class="logo-lg">
-                <img src="<%= image_url('logo-light.png') %>" alt="" height="20">
-            </span>
-        </a>
+      <%= link_to root_path, class: "logo logo-light text-center", data: { turbo: false } do %>
+        <span class="logo-sm">
+          <img src="<%= image_url('logo-sm.png') %>" alt="" height="24">
+        </span>
+        <span class="logo-lg">
+          <img src="<%= image_url('logo-light.png') %>" alt="" height="20">
+        </span>
+      <% end -%>
     </div>
 
     <div class="h-100" data-simplebar>
@@ -32,14 +32,14 @@
             <ul id="side-menu">
 
                 <li>
-                    <%= link_to home_index_path do %>
+                    <%= link_to home_index_path, data: { turbo: false } do %>
                       <i class="mdi mdi-gift-outline"></i>
                       <span> Home </span>
                     <% end -%>
                 </li>
 
                 <li>
-                    <a href="document/index.html">
+                    <a href="documentation/index.html" target="_blank">
                         <i class="mdi mdi-gift-outline"></i>
                         <span> Document </span>
                     </a>
