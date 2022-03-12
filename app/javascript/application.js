@@ -1,9 +1,8 @@
 // Entry point for the build script in your package.json
+import "./src/jquery"
 import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
-
-let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))  
-let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {  
-  return new bootstrap.Popover(popoverTriggerEl)  
-})
+import "./src/vendor"
+import "./src/layout"
+import "./src/app"
