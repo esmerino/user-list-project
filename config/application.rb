@@ -35,6 +35,7 @@ module SassProjects
     config.generators.system_tests = nil
 
     config.time_zone = 'America/Sao_Paulo'
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml')]
     config.i18n.default_locale = :'pt-BR'
   end
 end
