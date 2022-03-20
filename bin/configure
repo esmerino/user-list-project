@@ -53,23 +53,13 @@ end
 required_ruby = `cat ./.ruby-version`.strip
 actual_ruby = `ruby -v`.strip
 message = "SAAS Project requires Ruby #{required_ruby} and `ruby -v` returns #{actual_ruby}."
-if actual_ruby.include?(required_ruby)
-  puts green(message)
-else
-  puts red(message)
-  exit
-end
+puts yellow(message)
 
 # Unless the shell's current version of Ruby is the same as what the application requires, we should flag it.
 required_node = `cat ./.nvmrc`.strip
 actual_node = `node -v`.strip
 message = "SAAS Project requires Node.js #{required_node} and `node -v` returns #{actual_node}."
-if actual_node.include?(required_node)
-  puts green(message)
-else
-  puts red(message)
-  exit
-end
+puts yellow(message)
 
 if `git remote | grep saas-project`.strip.length > 0
   puts yellow "Repository already has a \`saas-project`\ remote."
