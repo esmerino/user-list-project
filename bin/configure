@@ -115,12 +115,11 @@ puts green "Replacing instances of \"Untitled Application\" with \"#{human}\" th
 replace_in_file("./config/database.yml", "untitled_application", variable)
 replace_in_file("./config/database.yml", "UNTITLED_APPLICATION", environment_variable)
 replace_in_file("./config/cable.yml", "untitled_application", variable)
-replace_in_file("./config/initializers/session_store.rb", "untitled_application", variable)
 replace_in_file("./config/environments/production.rb", "untitled_application", variable)
 replace_in_file("./config/application.rb", "UntitledApplication", class_name)
-replace_in_file("./config/locales/en/application.pt-BR.yml", "Untitled Application", human, /name/)
-replace_in_file("./config/locales/en/application.pt-BR.yml", "untitled_application", variable)
-replace_in_file("./config/locales/en/application.pt-BR.yml", "untitled application", human.downcase, /keywords/)
+replace_in_file("./config/locales/pt-BR/application.pt-BR.yml", "Untitled Application", human, /name/)
+replace_in_file("./config/locales/pt-BR/application.pt-BR.yml", "untitled_application", variable)
+replace_in_file("./config/locales/pt-BR/application.pt-BR.yml", "untitled application", human.downcase, /keywords/)
 puts ""
 
 puts green "Moving `./README.md.example` to `./README.md`."
