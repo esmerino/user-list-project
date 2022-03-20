@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <% if notice %>
+      <div class="alert alert-success"><%= notice %></div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
     <div id="wrapper">
       <%= render 'layouts/partials/topbar' %>
       <%= render 'layouts/partials/left-sidebar' %>

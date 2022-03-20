@@ -36,6 +36,6 @@ module SassProjects
 
     config.time_zone = 'America/Sao_Paulo'
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml')]
-    config.i18n.default_locale = :'pt-BR'
+    config.i18n.default_locale = 'pt-BR'
   end
 end

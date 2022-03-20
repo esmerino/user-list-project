@@ -17,30 +17,18 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                             <!-- item-->
-                            <div class="dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Welcome !</h6>
-                            </div>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="ri-account-circle-line"></i>
-                                <span>My Account</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <%= link_to edit_user_registration_path, class:'dropdown-item notify-item' do %>
                                 <i class="ri-settings-3-line"></i>
-                                <span>Settings</span>
-                            </a>
+                                <span>Configuração</span>
+                            <% end -%>
 
                             <div class="dropdown-divider"></div>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <%= link_to destroy_user_session_path, class:'dropdown-item notify-item' do %>
                                 <i class="ri-logout-box-line"></i>
-                                <span>Logout</span>
-                            </a>
-
+                                <span>Sair</span>
+                            <% end -%>
                         </div>
                     </li>
                 </ul>
