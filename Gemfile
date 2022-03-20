@@ -71,4 +71,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Open any sent emails in your browser instead of having to setup an SMTP trap.
+  gem "letter_opener"
 end
