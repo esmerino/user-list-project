@@ -78,7 +78,6 @@ ask "Hit <Return> and we'll open a browser to GitHub where you can create a new 
 
 ssh_path = ask "OK, what was the SSH path? (It should look like `git@github.com:your-account/your-new-repo.git`.)"
 puts green "Setting repository's `origin` remote to `#{ssh_path}`."
-puts `git remote remove origin`.chomp
 puts `git remote add origin #{ssh_path}`.chomp
 
 
