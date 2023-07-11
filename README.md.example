@@ -17,3 +17,33 @@
 2. Run the `bin/setup` script.
 3. Start the application with `bin/dev`.
 4. Visit http://localhost:3000.
+
+## Deploy Dokku
+     
+     ```
+     # Server
+     ssh root@your.server.ip.address
+
+     dokku domains:set-global your.server.ip.address
+     dokku domains:set-global your.server.ip.address.sslip.io
+
+     sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
+     sudo dokku plugin:install https://github.com/dokku/dokku-redis.git
+     sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+     sudo dokku plugin:install https://github.com/dokku/dokku-redirect.git
+     sudo dokku plugin:install https://github.com/dokku/dokku-maintenance.git maintenance
+     sudo dokku plugin:install https://github.com/dokku-community/dokku-apt apt
+
+     dokku apps:create untitled_application
+     dokku postgres:create untitled_application-postgres
+     dokku postgres:link untitled_application-postgres untitled_application
+     dokku redis:create untitled_application-redis
+     dokku redis:link untitled_application-redis untitled_application
+
+     # Local
+     git remote add production dokku@<your.server.ip.address:untitled_application
+     dokku --remote production git:set deploy-branch main
+     dokku --remote production config:set RAILS_MASTER_KEY=`cat config/credentials/production.key`
+
+     git push production main
+     ```
