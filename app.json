@@ -1,0 +1,10 @@
+{
+  "name": "untitled_application",
+  "keywords": [],
+  "scripts": {
+    "dokku": {
+      "predeploy": "crake assets:clobber && rake assets:precompile",
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}

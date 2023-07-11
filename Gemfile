@@ -77,4 +77,7 @@ group :development do
 
   # Open any sent emails in your browser instead of having to setup an SMTP trap.
   gem "letter_opener"
+
+  # Provides a Rails generator to produce Dockerfiles and related files.
+  gem "dockerfile-rails", ">= 1.5"
 end

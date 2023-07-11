@@ -72,16 +72,15 @@ else
   end
 end
 
-if `git remote | grep origin`.strip.length > 0
-  puts yellow "Repository already has a \`origin`\ remote."
-else
-  ask "Hit <Return> and we'll open a browser to GitHub where you can create a new repository. When you're done, copy the SSH path from the new repository and return here. We'll ask you to paste it to us in the next step."
-  `open https://github.com/new`
 
-  ssh_path = ask "OK, what was the SSH path? (It should look like `git@github.com:your-account/your-new-repo.git`.)"
-  puts green "Setting repository's `origin` remote to `#{ssh_path}`."
-  puts `git remote add origin #{ssh_path}`.chomp
-end
+ask "Hit <Return> and we'll open a browser to GitHub where you can create a new repository. When you're done, copy the SSH path from the new repository and return here. We'll ask you to paste it to us in the next step."
+`open https://github.com/new`
+
+ssh_path = ask "OK, what was the SSH path? (It should look like `git@github.com:your-account/your-new-repo.git`.)"
+puts green "Setting repository's `origin` remote to `#{ssh_path}`."
+puts `git remote remove origin`.chomp
+puts `git remote add origin #{ssh_path}`.chomp
+
 
 local_branch = `git branch | grep "*"`.split.last
 
@@ -113,6 +112,7 @@ kebab_case = variable.tr("_", "-")
 puts ""
 puts green "Replacing instances of \"Untitled Application\" with \"#{human}\" throughout the codebase."
 replace_in_file("./config/database.yml", "untitled_application", variable)
+replace_in_file("./app.json", "untitled_application", variable)  
 replace_in_file("./config/database.yml", "UNTITLED_APPLICATION", environment_variable)
 replace_in_file("./config/cable.yml", "untitled_application", variable)
 replace_in_file("./config/environments/production.rb", "untitled_application", variable)
