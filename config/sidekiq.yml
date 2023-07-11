@@ -1,0 +1,9 @@
+---
+:concurrency: 5
+production:
+  :concurrency: <%= ENV.fetch("RAILS_SIDEKIQ_CONCURRENCY") { 1 } %>
+:queues:
+  - low
+  - high
+:limits:
+  connect_lab: 2
