@@ -3,7 +3,6 @@
   "keywords": [],
   "scripts": {
     "dokku": {
-      "predeploy": "rake assets:clobber && rake assets:precompile",
       "postdeploy": "bundle exec rake db:migrate"
     }
   }
