@@ -61,23 +61,12 @@ actual_node = `node -v`.strip
 message = "SAAS Project requires Node.js #{required_node} and `node -v` returns #{actual_node}."
 puts yellow(message)
 
-if `git remote | grep saas-project`.strip.length > 0
-  puts yellow "Repository already has a \`saas-project`\ remote."
-else
-  if `git remote | grep origin`.strip.length > 0
-    puts green "Renaming repository `origin` remote to `saas-project`."
-    `git remote rename origin saas-project`
-  else
-    puts red "Repository has no `origin` remote, but also no `saas-project` remote. Did something go wrong?"
-  end
-end
-
-
 ask "Hit <Return> and we'll open a browser to GitHub where you can create a new repository. When you're done, copy the SSH path from the new repository and return here. We'll ask you to paste it to us in the next step."
 `open https://github.com/new`
 
 ssh_path = ask "OK, what was the SSH path? (It should look like `git@github.com:your-account/your-new-repo.git`.)"
 puts green "Setting repository's `origin` remote to `#{ssh_path}`."
+puts `git remote remove origin`.chomp
 puts `git remote add origin #{ssh_path}`.chomp
 
 
