@@ -32,17 +32,10 @@
             <ul id="side-menu">
 
                 <li>
-                    <%= link_to home_index_path, data: { turbo: false } do %>
-                      <i class="mdi mdi-gift-outline"></i>
-                      <span> Home </span>
+                    <%= link_to users_path, data: { turbo: false } do %>
+                      <i class="mdi mdi-account-outline"></i>
+                      <span> Users </span>
                     <% end -%>
-                </li>
-
-                <li>
-                    <a href="documentation/index.html" target="_blank">
-                        <i class="mdi mdi-gift-outline"></i>
-                        <span> Document </span>
-                    </a>
                 </li>
 
             </ul>

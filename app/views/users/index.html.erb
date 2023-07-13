@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box page-title-box-alt">
+        <h4 class="page-title">Users</h4>
+      </div>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <%= turbo_frame_tag 'loading-user_list' do %>
+              <%= turbo_stream_from :user_list %>
+
+              <%= render partial: 'user_list', locals: { users: @users, pagination: @pagination } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
