@@ -7,13 +7,11 @@ class ImportUsersWorker
   sidekiq_options queue: 'low', retry: true
 
   def perform
-    users_list = connection.get('json').body.dig('users')
-
     users_list.each do |user|
-      User.find_or_create_by(reference_key: user['id'], 
-                             name: user['name'],
-                             age: user['age'],
-                             email: user['email'])
+      User.find_or_create_by(reference_key: user.dig('id'), 
+                             name: user.dig('name'),
+                             age: user.dig('age'),
+                             email: user.dig('email'))
     end
 
     pagination, users = pagy(User.all, page: 1)
@@ -21,6 +19,10 @@ class ImportUsersWorker
   end
 
   private
+
+  def users_list
+    connection.get('json').body.dig('users')
+  end
 
   def connection
     @connection ||= Faraday.new('https://run.mocky.io/v3/ce47ee53-6531-4821-a6f6-71a188eaaee0') do |conn|
