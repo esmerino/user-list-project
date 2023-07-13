@@ -36,6 +36,9 @@ gem "redis", "~> 4.0"
 # Simple, efficient background processing for Ruby
 gem "sidekiq"
 
+# Lightweight job scheduler extension for Sidekiq
+gem "sidekiq-scheduler"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -59,6 +62,12 @@ gem "devise"
 
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
 gem "simple_form"
+
+# The Best Pagination Ruby Gem
+gem "pagy"
+
+# Simple, but flexible HTTP client library, with support for multiple backends.
+gem "faraday"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
